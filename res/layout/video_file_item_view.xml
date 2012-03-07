@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/video_file_view"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+		<!-- left img -->
+        <com.weinba.LoaderImageView
+            android:id="@+id/load_img_view"
+            android:layout_width="64dip"
+            android:layout_height="64dip"
+            />
+        <!-- right part -->
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- title -->
+            <TextView android:id="@+id/thumb_info_text"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:ellipsize="marquee"
+	            android:singleLine="true"
+	            android:textColor="#ff00ff00"/>
+            <!-- right bottom -->
+            
+            <LinearLayout 
+                android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal">
+	            
+               
+                <!-- description begin -->
+                <LinearLayout 
+                    android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:orientation="vertical"
+		            android:gravity="left">
+                    <TextView android:id="@+id/text1"
+		                android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+			            android:ellipsize="marquee"
+			            android:singleLine="true"/>
+			        <TextView android:id="@+id/text2"
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content"
+			            android:ellipsize="marquee"
+			            android:singleLine="true"/>
+                </LinearLayout>
+                <!-- description end -->
+                
+                <!-- action bar begin -->
+		        <LinearLayout 
+		            android:id="@+id/img_file_view"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:orientation="horizontal"
+				    android:gravity="right" >
+				    <Button
+				        android:id="@+id/delete_img"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:visibility="gone"/>
+				     <Button
+				        android:id="@+id/view_img"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:visibility="gone" />
+				</LinearLayout>
+				<!-- action bar end -->
+				
+            </LinearLayout>
+            <!-- right bottom -->
+        </LinearLayout>
+        
+    </LinearLayout>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTheme" parent="@android:style/Theme">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+    </style>
+    <style name="MyDefaultTextAppearance" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@drawable/text_color</item>
+    </style>
+    <style name="OOScreen">
+        <item name="android:background">@drawable/screen_background</item>
+    </style>
+    <style name="OOUniCont">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/xml_bg_list_item</item>
+        <item name="android:padding">10.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10.0dip</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:layout_marginRight">10.0dip</item>
+    </style>
+    <style name="OOUniContNoMargin" parent="@style/OOUniCont">
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginTop">0.0dip</item>
+        <item name="android:layout_marginRight">0.0dip</item>
+    </style>
+    <style name="OOUniContWholePage" parent="@style/OOUniCont">
+        <item name="android:layout_marginBottom">10.0dip</item>
+    </style>
+    <style name="OOUniEmpty" parent="@style/OOUniCont">
+        <item name="android:textSize">10.0pt</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">5.0pt</item>
+    </style>
+    <style name="OOProfileInfoCont" parent="@style/OOUniCont">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:textSize">16.0dip</item>
+    </style>
+    <style name="OOProfileInfoTitle">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:background">#22ffffff</item>
+        <item name="android:padding">5.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="OOProfileInfoData">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+    </style>
+    <style name="OOSubmitBtn">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+    </style>
+    <style name="OOSubmitBtnTop" parent="@style/OOSubmitBtn">
+        <item name="android:layout_marginTop">0.0dip</item>
+        <item name="android:layout_marginBottom">10.0dip</item>
+    </style>
+    <style name="OOListPickerView">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:cacheColorHint">#00000000</item>
+        <item name="android:divider">@drawable/xml_bg_list_divider</item>
+        <item name="android:dividerHeight">3.0dip</item>
+        <item name="android:choiceMode">singleChoice</item>
+    </style>
+    <style name="OOListView">
+        <item name="android:padding">10.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:cacheColorHint">#00000000</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">10.0dip</item>
+        <item name="android:choiceMode">singleChoice</item>
+    </style>
+    <style name="OOThumbContHome" parent="@style/OOThumbCont">
+        <item name="android:layout_width">290.0dip</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:layout_marginBottom">5.0dip</item>
+    </style>
+    <style name="OOThumbCont">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/xml_bg_list_item</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="OOThumbImage">
+        <item name="android:gravity">center</item>
+        <item name="android:background">#ff000000</item>
+        <item name="android:layout_width">64.0dip</item>
+        <item name="android:layout_height">64.0dip</item>
+        <item name="android:layout_marginLeft">5.0dip</item>
+        <item name="android:layout_marginTop">5.0dip</item>
+        <item name="android:layout_marginRight">10.0dip</item>
+        <item name="android:layout_marginBottom">5.0dip</item>
+    </style>
+    <style name="OOThumbContInfo">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="OOThumbWrapInfo">
+        <item name="android:layout_width">0.0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="OOThumbTitle">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:textSize">20.0dip</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.0dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">0.9</item>
+    </style>
+    <style name="OOThumbText1">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.0dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">0.7</item>
+    </style>
+    <style name="OOThumbText2">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.0dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">0.7</item>
+    </style>
+    <style name="OOHomeButtonCont">
+        <item name="android:background">@drawable/xml_bg_list_item</item>
+        <item name="android:padding">0.0dip</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">90.0dip</item>
+        <item name="android:layout_height">90.0dip</item>
+        <item name="android:layout_margin">5.0dip</item>
+    </style>
+    <style name="OOHomeButton">
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">90.0dip</item>
+        <item name="android:layout_height">90.0dip</item>
+    </style>
+    <style name="OOHomeButtonImage">
+        <item name="android:layout_width">48.0dip</item>
+        <item name="android:layout_height">48.0dip</item>
+        <item name="android:layout_marginTop">10.0dip</item>
+        <item name="android:layout_marginBottom">3.0dip</item>
+    </style>
+    <style name="OOHomeButtonText" parent="@android:style/Widget.TextView">
+        <item name="android:textAppearance">@style/MyDefaultTextAppearance</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="OOHomeButtonBubble" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">12.0dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:background">@drawable/bg_bubble</item>
+        <item name="android:paddingLeft">7.0dip</item>
+        <item name="android:paddingTop">3.0dip</item>
+        <item name="android:paddingRight">7.0dip</item>
+        <item name="android:paddingBottom">3.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">24.0dip</item>
+    </style>
+</resources>

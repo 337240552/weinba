@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/OOScreen" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout style="@style/OOUniContWholePage" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/media_images_caption_image"
+                android:textAppearance="@style/MyDefaultTextAppearance" />
+
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TableRow android:gravity="center_vertical" >
+
+                    <ImageView
+                        android:id="@+id/media_images_image"
+                        android:layout_width="100.0px"
+                        android:layout_height="100.0px"
+                        android:background="#ffffffff" />
+
+                    <Button
+                        android:id="@+id/media_images_btn_from_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/media_images_from_camera" />
+
+                    <Button
+                        android:id="@+id/media_images_btn_from_gallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/media_images_from_gallery" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/media_images_caption_title"
+                android:textAppearance="@style/MyDefaultTextAppearance" />
+
+            <EditText
+                android:id="@+id/media_images_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/media_images_caption_tags"
+                android:textAppearance="@style/MyDefaultTextAppearance" />
+
+            <EditText
+                android:id="@+id/media_images_tags"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/media_images_caption_desc"
+                android:textAppearance="@style/MyDefaultTextAppearance" />
+
+            <EditText
+                android:id="@+id/media_images_desc"
+                android:layout_width="fill_parent"
+                android:layout_height="200.0dip"
+                android:gravity="top"
+                android:singleLine="false" />
+
+            <Button
+                android:id="@+id/media_images_submit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/media_images_submit" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

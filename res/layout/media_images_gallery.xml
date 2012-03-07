@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/OOScreen"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.boonex.oo.LoaderImageView android:gravity="center" android:id="@+id/media_images_image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <TableLayout 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content" 
+        android:stretchColumns="2"
+      	xmlns:android="http://schemas.android.com/apk/res/android">
+        <TableRow>
+            <LinearLayout
+              xmlns:android="http://schemas.android.com/apk/res/android">
+                <Button 
+                    android:id="@+id/media_images_gallery_prev" 
+                    android:layout_width="50.0px" 
+                    android:layout_height="wrap_content"
+                     android:text="@string/media_images_gallery_prev" />
+            </LinearLayout>
+            <LinearLayout android:gravity="right" android:layout_column="2"
+              xmlns:android="http://schemas.android.com/apk/res/android">
+                <Button 
+                    android:id="@+id/media_images_gallery_next"
+                    android:layout_width="50.0px"
+                    android:layout_height="wrap_content" 
+                    android:text="@string/media_images_gallery_next" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+</FrameLayout>

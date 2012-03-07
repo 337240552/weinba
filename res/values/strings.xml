@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, WeinbaActivity!</string>
+    <string name="app_name">Weinba</string>
+    <string name="load_error">Error</string>
+	<string name="load_error_msg">loading error, try again!</string>
+	<string name="exception">Call Exception</string>
+	<string name="video_btn_str">Video</string>
+	<string name="loading">Loading</string>
+	<string name="media_album_name_num">%1$1s (%2$1s)</string>
+	
+	<string name="mail_from_x">From: %s</string>
+    <string name="mail_to_x">To: %s</string>
+    <string name="empty">Empty</string>
+    
+    <string name="img_view_title">Images</string>
+    <string name="delete">Delete</string>
+    <string name="view">View</string>
+    <string name="add">Add</string>
+    
+     <string name="media_images_gallery_next">></string>
+    <string name="media_images_gallery_prev">&lt;</string>
+    <string name="media_images_from_camera">Camera</string>
+    <string name="media_images_from_gallery">Gallery</string>
+    <string name="media_images_caption_image">Image</string>
+    <string name="media_images_caption_title">Title</string>
+    <string name="media_images_caption_tags">Tags</string>
+    <string name="media_images_caption_desc">Description</string>
+    <string name="media_images_submit">Submit</string>
+    <string name="media_images_add">Add</string>
+    <string name="media_images_add_activity_canceled">Activity canceled</string>
+    <string name="media_images_add_image_selected">Image selected</string>
+    <string name="media_image_add_form_error">Title is empty or images is not selected</string>
+    <string name="media_image_upload_failed">Upload failed</string>
+    <string name="media_image_add_popup_error_title">ERROR</string>
+    <string name="media_images_gallery_set_as_avatar">Set as avatar</string>
+    <string name="media_images_gallery_set_as_avatar_ok">Avatar was set</string>
+    <string name="media_images_gallery_set_as_avatar_fail">Avatar set failed</string>
+    <string name="videos_menu">Videos</string>
+</resources>
