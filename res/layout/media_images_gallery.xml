@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" style="@style/OOScreen"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.boonex.oo.LoaderImageView android:gravity="center" android:id="@+id/media_images_image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.weinba.LoaderImageView android:gravity="center" android:id="@+id/media_images_image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
     <TableLayout 
         android:layout_width="fill_parent" 
         android:layout_height="wrap_content" 

@@ -3,6 +3,7 @@ package com.weinba.media;
 
 import com.weinba.ActivityBase;
 import com.weinba.Connector;
+import com.weinba.R;
 import com.weinba.Settings;
 
 import android.app.AlertDialog;
@@ -66,7 +67,7 @@ public class AddImageActivity extends ActivityBase {
                 Bitmap localBitmap = null;
 
                 // 如果选择图片的话
-                if (requestCode != CAMERA_ACTIVITY) {
+                if (requestCode != CAMERA_ACTIVITY) {// PICKER_ACTIVITY
                     Uri localUri = data.getData();
                     Object localObject2 = localUri.toString();
 
@@ -99,67 +100,70 @@ public class AddImageActivity extends ActivityBase {
                                     .getString(m));
                         }
                     }
-                } else {// 拍照方式
+                } else if (requestCode == CAMERA_ACTIVITY) {// 拍照方式
                     Bundle localBundle = null;
                     if (data != null) {
                         localBundle = data.getExtras();
-
                         if (localBundle != null) {
                             Bitmap bitmap = (Bitmap) localBundle.get("data");
                             this.m_bmpImage = ((Bitmap) bitmap);
-                            if (bitmap != null) {
-                                Log.i("AddImageActivity", "Bundle = " + localBundle);
-                                localBitmap = (Bitmap) localBundle.get("data");
-                            }
+                            if (bitmap != null){
+                                this.m_bmpImage = localBitmap = getFromIntent(localBundle);
+                            }  
                         }
-                        
+                    }else{
+                        this.m_bmpImage = localBitmap = getFromDisk();
                     }
-                    Log.i("AddImageActivity", "Bundle is NULL");
-
-                    /*
-                     * Object localObject1 = new
-                     * File(Environment.getExternalStorageDirectory(),
-                     * TMP_FILE); Log.i("AddImageActivity", "Path = " +
-                     * Environment.getExternalStorageDirectory());
-                     * Log.i("AddImageActivity", "AbsolutePath = " +
-                     * ((File)localObject1).getAbsolutePath()); localBitmap =
-                     * BitmapFactory
-                     * .decodeFile(((File)localObject1).getAbsolutePath());
-                     */
-
+                    
+                    int j = localBitmap.getWidth();
+                    int m = localBitmap.getHeight();
+                    
+                    float f;
+                    if (j <= m)
+                        f = 1024.0F / m;
+                    else
+                        f = 1024.0F / j;
+                    
+                    Matrix matrix = new Matrix();
+                    matrix.postScale(f, f);
+                    this.m_bmpImage = Bitmap.createBitmap(localBitmap, 0, 0, j, m,
+                             matrix, true);
+                    localBitmap.recycle();
+                    this.m_viewImage.setImageBitmap(this.m_bmpImage);
+                    showToast(getString(R.string.media_images_add_image_selected));
+                    }
                 }
-                Log.i(TAG, "DISK  file bitmap");
-                int j = localBitmap.getWidth();
-                int m = localBitmap.getHeight();
-                float f;
-                if (j <= m)
-                    f = 1024.0F / m;
-                else
-                    f = 1024.0F / j;
-                Object localObject3 = new Matrix();
-                ((Matrix) localObject3).postScale(f, f);
-                this.m_bmpImage = Bitmap.createBitmap(localBitmap, 0, 0, j, m,
-                        (Matrix) localObject3, true);
-                localBitmap.recycle();
-                this.m_viewImage.setImageBitmap(this.m_bmpImage);
-                showToast(getString(2130968684));
-            }
         } else {
-            showToast(getString(2130968683));
+            showToast(getString(R.string.media_images_add_activity_canceled));
         }
     }
 
+    private Bitmap getFromIntent(Bundle bundle){
+        Log.i("AddImageActivity", "Bundle = " + bundle);
+        return (Bitmap) bundle.get("data");
+    }
+    
+    private Bitmap getFromDisk(){
+        Log.i("AddImageActivity", "Bundle is NULL");
+        Object localObject1 = new File(Environment.getExternalStorageDirectory(),
+                "tmp_oo.jpg");
+        Log.i("AddImageActivity", "Path = " + Environment.getExternalStorageDirectory());
+        Log.i("AddImageActivity",
+                "AbsolutePath = " + ((File) localObject1).getAbsolutePath());
+        Bitmap localBitmap = BitmapFactory.decodeFile(((File) localObject1).getAbsolutePath());
+        return localBitmap;
+    }
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle, false);
 
-        setContentView(2130903048);
-        this.m_buttonSubmit = ((Button) findViewById(2131165213));
-        this.m_buttonFromCamera = ((Button) findViewById(2131165208));
-        this.m_buttonFromGallery = ((Button) findViewById(2131165209));
-        this.m_editTitle = ((EditText) findViewById(2131165210));
-        this.m_editTags = ((EditText) findViewById(2131165211));
-        this.m_editDesc = ((EditText) findViewById(2131165212));
-        this.m_viewImage = ((ImageView) findViewById(2131165207));
+        setContentView(R.layout.media_images_add);
+        this.m_buttonSubmit = ((Button) findViewById(R.id.media_images_submit));
+        this.m_buttonFromCamera = ((Button) findViewById(R.id.media_images_btn_from_camera));
+        this.m_buttonFromGallery = ((Button) findViewById(R.id.media_images_btn_from_gallery));
+        this.m_editTitle = ((EditText) findViewById(R.id.media_images_title));
+        this.m_editTags = ((EditText) findViewById(R.id.media_images_tags));
+        this.m_editDesc = ((EditText) findViewById(R.id.media_images_desc));
+        this.m_viewImage = ((ImageView) findViewById(R.id.media_images_image));
         if (this.m_bmpImage != null)
             this.m_viewImage.setImageBitmap(this.m_bmpImage);
         this.m_actAddImage = this;

@@ -2,7 +2,6 @@ package com.weinba.media;
 
 import com.weinba.Connector;
 import com.weinba.R;
-import com.weinba.Settings;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,8 +21,7 @@ public class ImagesFilesActivity extends MediaFilesActivity
     this.m_sMethodXMLRPC = "dolphin.getImagesInAlbum";
   }
 
-  protected void customAction()
-  {
+  protected void customAction() {
     Intent localIntent = new Intent(this, AddImageActivity.class);
     localIntent.putExtra("album_name", this.m_sAlbumName);
     startActivityForResult(localIntent, 0);
@@ -48,13 +46,14 @@ public class ImagesFilesActivity extends MediaFilesActivity
   {
     super.onCreate(paramBundle);
     setTitleCaption(R.string.img_view_title);
-    /*if (this.m_sUsername.equalsIgnoreCase(this.m_oConnector.getUsername()))
-    {
-      this.m_btnAction.setVisibility(View.GONE);
-      this.m_btnAction.setImageResource(2130837529);
-    }*/
+    
   }
 
+  @Override
+    public void setContentView(int paramInt) {
+      this.m_isToolbarEnabled = true;
+        super.setContentView(paramInt);
+    }
   protected void onListItemClick(ListView paramListView, View paramView, int paramInt, long paramLong)
   {
     if (this.filesAdapter.getItem(paramInt) != null)
@@ -90,8 +89,7 @@ public class ImagesFilesActivity extends MediaFilesActivity
     , this);
   }
 
-  public void onViewFile(String paramString)
-  {
+  public void onViewFile(String paramString)  {
     int i = this.filesAdapter.getPositionByFileId(paramString);
     if (i >= 0)
       onListItemClick(null, null, i, 0L);
