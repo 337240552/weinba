@@ -8,9 +8,15 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Handler;
 import android.util.Log;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.io.StreamCorruptedException;
 import java.net.URI;
 import java.security.MessageDigest;
 import java.util.Map;
@@ -20,6 +26,7 @@ public class Connector
         implements Serializable {
     private static final String TAG = "Connector";
     private static final long serialVersionUID = 1L;
+    private static final String FILENAME = "connector.ser";
     protected boolean m_bAlbumsReloadRequired;
     protected boolean m_bImagesReloadRequired;
     protected Context m_context;
@@ -48,11 +55,41 @@ public class Connector
     public static Connector restoreConnector() {
         return new Connector(Settings.URL, Settings.USERNAME, Settings.PASSWORD);
     }
-    // ERROR //
-    public static void saveConnector(Context paramContext, Connector paramConnector) {
-
+   
+    public static void saveConnector(Context context, Connector connector) {
+        try {
+            FileOutputStream fos = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            ObjectOutputStream objOutputStream = new ObjectOutputStream(fos);
+            objOutputStream.writeObject(connector);
+            objOutputStream.flush();
+            objOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    public static Connector restoreConnector(Context context) {
+        FileInputStream fin;
+        Connector con = null;
+        try {
+            fin = context.openFileInput(FILENAME);
+            ObjectInputStream inputStream =
+                    new ObjectInputStream(fin);
+            con = (Connector) inputStream.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (StreamCorruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(con != null){
+            con.m_oClient = new XMLRPCClient(con.m_sUrl);
+        }
+        return con;
+    }
     private void writeObject(ObjectOutputStream paramObjectOutputStream)
             throws IOException {
         paramObjectOutputStream.defaultWriteObject();
